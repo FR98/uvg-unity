@@ -46,7 +46,7 @@ public class FinishScript : MonoBehaviour
         // Hacer una pausa
         secondsCounter += Time.deltaTime;
         if (tiempo) {
-            changeScene("SampleScene");
+            changeScene("Worldd");
         }
     }
 
