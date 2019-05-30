@@ -9,6 +9,8 @@ public class FinishScript : MonoBehaviour
     public GameObject loseTxt;
     private bool ganaAI = false;
     private bool ganaPlayer = false;
+    float secondsCounter = 0;
+    float secondsToCount = 45;
 
     // Start is called before the first frame update
     void Start()
@@ -38,14 +40,22 @@ public class FinishScript : MonoBehaviour
         winTxt.SetActive(true);
         ganaPlayer = true;
         // Hacer una pausa
-        changeScene("SampleScene");
+        secondsCounter += Time.deltaTime;
+        if (secondsCounter >= secondsToCount) {
+            secondsCounter = 0;
+            changeScene("SampleScene");
+        }
     }
 
     void lose() {
         loseTxt.SetActive(true);
         ganaAI = true;
         // Hacer una pausa
-        changeScene("SampleScene");
+        secondsCounter += Time.deltaTime;
+        if (secondsCounter >= secondsToCount) {
+            secondsCounter = 0;
+            changeScene("SampleScene");
+        }
     }
 
     public void changeScene(string newScene) {

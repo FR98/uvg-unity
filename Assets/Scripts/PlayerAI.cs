@@ -9,7 +9,7 @@ public class PlayerAI : MonoBehaviour
     private NavMeshAgent playerAIAgent;
     public GameObject[] wayPoints;
     float secondsCounter = 0;
-    float secondsToCount = 3;
+    float secondsToCount = 120;
     int lastRnd = 0;
 
     // Start is called before the first frame update
@@ -39,10 +39,10 @@ public class PlayerAI : MonoBehaviour
     }
 
     void move() {
-        int rndPosition = randomNumber(0, (wayPoints.Length));
-        if (wayPoints.Length > 0) {
-            playerAIAgent.SetDestination(wayPoints[rndPosition].transform.position);
-        }
+        // int rndPosition = randomNumber(0, (wayPoints.Length));
+        // if (wayPoints.Length > 0) {
+        //     playerAIAgent.SetDestination(wayPoints[rndPosition].transform.position);
+        // }
     }
 
     int randomNumber(int i, int f) {
