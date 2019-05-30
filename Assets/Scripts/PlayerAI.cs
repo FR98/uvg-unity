@@ -39,10 +39,10 @@ public class PlayerAI : MonoBehaviour
     }
 
     void move() {
-        // int rndPosition = randomNumber(0, (wayPoints.Length));
-        // if (wayPoints.Length > 0) {
-        //     playerAIAgent.SetDestination(wayPoints[rndPosition].transform.position);
-        // }
+        int rndPosition = randomNumber(0, (wayPoints.Length));
+        if (wayPoints.Length > 0) {
+            playerAIAgent.SetDestination(wayPoints[rndPosition].transform.position);
+        }
     }
 
     int randomNumber(int i, int f) {

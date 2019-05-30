@@ -10,7 +10,8 @@ public class FinishScript : MonoBehaviour
     private bool ganaAI = false;
     private bool ganaPlayer = false;
     float secondsCounter = 0;
-    float secondsToCount = 45;
+    float secondsToCount = 10;
+    private bool tiempo = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,10 @@ public class FinishScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (secondsCounter >= secondsToCount) {
+            secondsCounter = 0;
+            tiempo = true;
+        }
     }
 
     private void OnTriggerStay(Collider collider) {
@@ -41,8 +45,7 @@ public class FinishScript : MonoBehaviour
         ganaPlayer = true;
         // Hacer una pausa
         secondsCounter += Time.deltaTime;
-        if (secondsCounter >= secondsToCount) {
-            secondsCounter = 0;
+        if (tiempo) {
             changeScene("SampleScene");
         }
     }
@@ -52,8 +55,7 @@ public class FinishScript : MonoBehaviour
         ganaAI = true;
         // Hacer una pausa
         secondsCounter += Time.deltaTime;
-        if (secondsCounter >= secondsToCount) {
-            secondsCounter = 0;
+        if (tiempo) {
             changeScene("SampleScene");
         }
     }
